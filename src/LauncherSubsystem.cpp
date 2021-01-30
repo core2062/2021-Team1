@@ -11,13 +11,14 @@ void LauncherSubsystem::robotInit() {
 }
 
 void LauncherSubsystem::teleopInit() {
+    initTalons();
 }
 
 void LauncherSubsystem::teleop() {
 
 }
 
-void LauncherSubsystem::launcherOn() {
+void LauncherSubsystem::launcherTriggered() {
 
 }
 void LauncherSubsystem::teleopEnd() {

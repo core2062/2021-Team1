@@ -10,7 +10,7 @@ void ConveyorSubsystem::robotInit(){
 }
 
 void ConveyorSubsystem::teleopInit() {
-
+    initTalons();
 }
 
 void ConveyorSubsystem::teleop(){

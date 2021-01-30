@@ -18,7 +18,7 @@ public:
 	void teleopEnd() override;
 	void auton();
 	void initTalons();
-    void launcherOn();
+    void launcherTriggered();
 
 private:
 };

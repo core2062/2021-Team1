@@ -8,12 +8,10 @@ void ClimberSubsystem::robotInit() {
 }
 
 void ClimberSubsystem::teleopInit() {
-
+    initTalons();
 }
 
 void ClimberSubsystem::teleop() {
-
-
 
 }
 
