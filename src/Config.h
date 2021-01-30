@@ -1,40 +1,38 @@
 #pragma once
+/*
+ * Port ID Conventions
+ * 
+ * Ports 0-3: PCMs
+ * Ports 4-7: Drivetrain Talons
+ * Ports 8-9: Drivetrain Shifters
+ * Ports 10-20: Other Solenoids
+ * Ports 21-30: Other Talons
+ * Ports 31-50: Any additional ports
+ * 
+ */
+
+/* PCM Ports */
+#define PCM 0
 
 /* Drive ports */
-#define RIGHT_FRONT_PORT 20
-#define RIGHT_BACK_PORT 14
-#define LEFT_FRONT_PORT 19
-#define LEFT_BACK_PORT 32
+#define RIGHT_FRONT_PORT 4
+#define RIGHT_BACK_PORT 5
+#define LEFT_FRONT_PORT 6
+#define LEFT_BACK_PORT 7
 
-
-/* Solenoids */
-#define LEFT_DRIVE_SHIFTER_PCM 2
-#define RIGHT_DRIVE_SHIFTER_PCM 2
-#define COMPRESSOR_PCM 2
-#define LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT 7
-#define RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT 7 
-#define LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT 6
-#define RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT 6
-#define INTAKE_DOWN_PORT 4
-#define INTAKE_UP_PORT 5
-#define CLIMBER_UP_PORT_ONE 0
-#define CLIMBER_UP_PORT_TWO 2
-#define CLIMBER_DOWN_PORT_ONE 1
-#define CLIMBER_DOWN_PORT_TWO 3
-
+/* Shifters */
+#define LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT 8
+#define RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT 8
+#define LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT 9
+#define RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT 9
 
 /* Launcher Ports */
-#define BOTTOM_LAUNCHER_MOTOR_PORT 16
-#define TURRET_PORT 22
+#define Launcher_Port 10 
 
-/* Intake and Conveyor Ports */
-#define INTAKE_PORT 15
-#define CONVEYOR_1_PORT 17
-#define CONVEYOR_2_PORT 18
-#define CONVEYOR_3_PORT 21
+/* Intake and Conveyor Port(s) */
+#define CONVEYOR_PORT_1 17
 
-/* STILTS PORTS */
-#define STILT_1_PORT 
-#define STILT_2_PORT 
-#define STILT_3_PORT 
-#define STILT_4_PORT 
+/* Climber port */
+#define CLIMBER_1_PORT 21
+#define CLIMBER_2_PORT 22
+

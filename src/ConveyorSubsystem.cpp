@@ -1,7 +1,7 @@
 #include "ConveyorSubsystem.h"
 
 ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed("Conveyor Speed", 0.75),
-                                         m_conveyorMotor(CONVEYOR_1_PORT) {
+                                         m_conveyorMotor(CONVEYOR_PORT_1) {
 }
 
 void ConveyorSubsystem::robotInit(){
@@ -14,7 +14,6 @@ void ConveyorSubsystem::teleopInit() {
 }
 
 void ConveyorSubsystem::teleop(){
-    cout<<"Conveyer teleop"<<endl;
     if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
         setMotor(conveyorSpeed.Get());
     } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
