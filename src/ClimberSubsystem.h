@@ -18,5 +18,6 @@ public:
     void initTalons();
 
 private:
-
+    TalonSRX m_stilt1;
+    TalonSRX m_stilt2;
 };

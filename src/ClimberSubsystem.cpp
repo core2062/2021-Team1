@@ -1,7 +1,9 @@
 #include "ClimberSubsystem.h"
 
-ClimberSubsystem::ClimberSubsystem() {
-}
+ClimberSubsystem::ClimberSubsystem() : m_stilt1(STILT_1_PORT),
+                                       m_stilt2(STILT_2_PORT) {
+
+                                      }
 
 void ClimberSubsystem::robotInit() {
     initTalons();
