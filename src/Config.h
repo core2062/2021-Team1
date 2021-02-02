@@ -34,7 +34,5 @@
 #define CONVEYOR_3_PORT 21
 
 /* STILTS PORTS */
-#define STILT_1_PORT 
-#define STILT_2_PORT 
-#define STILT_3_PORT 
-#define STILT_4_PORT 
+#define STILT_1_PORT 1
+#define STILT_2_PORT 1
