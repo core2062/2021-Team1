@@ -5,7 +5,6 @@ ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed("Conveyor Speed", 0.75),
 }
 
 void ConveyorSubsystem::robotInit(){
-    /* Inits Talons */
     initTalons();
 }
 
