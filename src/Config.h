@@ -27,7 +27,8 @@
 #define RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT 9
 
 /* Launcher Ports */
-#define Launcher_Port 10 
+#define LAUNCHER_PORT_RETRACTED 10 
+#define LAUNCHER_PORT_EXTENDED 11
 
 /* Intake and Conveyor Port(s) */
 #define CONVEYOR_PORT_1 23
@@ -35,7 +36,3 @@
 /* Climber port */
 #define CLIMBER_1_PORT 21
 #define CLIMBER_2_PORT 22
-
-/* STILTS PORTS */
-#define STILT_1_PORT 1
-#define STILT_2_PORT 1
