@@ -30,7 +30,7 @@
 #define Launcher_Port 10 
 
 /* Intake and Conveyor Port(s) */
-#define CONVEYOR_PORT_1 17
+#define CONVEYOR_PORT_1 23
 
 /* Climber port */
 #define CLIMBER_1_PORT 21
