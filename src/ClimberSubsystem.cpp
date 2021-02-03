@@ -18,5 +18,8 @@ void ClimberSubsystem::teleop() {
 }
 
 void ClimberSubsystem::initTalons(){
-
+    m_stilt1.Set(ControlMode::PercentOutput, 0);
+    m_stilt2.Set(ControlMode::PercentOutput, 0);
+    m_stilt1.SetInverted(true);
+    m_stilt2.SetInverted(true);
 }
