@@ -20,8 +20,6 @@ void LauncherSubsystem::teleop() {
         m_solenoidActivated = true;
         launcherTriggered();
         m_solenoidActivated = false;
-    } else {
-        return;
     }
 }
 
