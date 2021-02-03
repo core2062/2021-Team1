@@ -16,17 +16,17 @@ void LauncherSubsystem::teleopInit() {
 
 void LauncherSubsystem::teleop() {
     if (driverJoystick->GetRisingEdge(CORE::COREJoystick::B_BUTTON) && !m_solenoidActivated) {
-        m_solenoidActivated = true;
         launcherTriggered();
-        m_solenoidActivated = false;
     }
 }
 
 void LauncherSubsystem::launcherTriggered() {
     if (m_solenoidActivated) {
         m_launcherSolenoid.Set(DoubleSolenoid::kForward);
+        m_solenoidActivated = false;
     } else if (!m_solenoidActivated) {
         m_launcherSolenoid.Set(DoubleSolenoid::kReverse);
+        m_solenoidActivated = true;
     }
 }
 void LauncherSubsystem::teleopEnd() {
