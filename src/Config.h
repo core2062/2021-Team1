@@ -39,3 +39,8 @@
 /* STILTS PORTS */
 #define STILT_1_PORT 1
 #define STILT_2_PORT 1
+
+#define STILT_ENGAGE_BUTTON COREJoystick::JoystickButton::LEFT_BUTTON
+
+// in encoder ticks
+#define STILT_RISE_DISTANCE 
