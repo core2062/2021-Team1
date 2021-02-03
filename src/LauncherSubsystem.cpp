@@ -6,12 +6,11 @@ LauncherSubsystem::LauncherSubsystem() : m_launcherSolenoid(PNEUMATIC_LAUNCHER_S
                                         {}
 
 void LauncherSubsystem::robotInit() {
-
     driverJoystick->RegisterButton(CORE::COREJoystick::B_BUTTON);
 }
 
 void LauncherSubsystem::teleopInit() {
-
+    m_solenoidActivated = false;
 }
 
 
@@ -20,8 +19,6 @@ void LauncherSubsystem::teleop() {
         m_solenoidActivated = true;
         launcherTriggered();
         m_solenoidActivated = false;
-    } else {
-        return;
     }
 }
 
