@@ -36,9 +36,6 @@
 #define CLIMBER_1_PORT 21
 #define CLIMBER_2_PORT 22
 
-<<<<<<< HEAD
 /* STILTS PORTS */
 #define STILT_1_PORT 1
 #define STILT_2_PORT 1
-=======
->>>>>>> 9c9edea17a8421b10aeb15eb6e03a016aec02825
