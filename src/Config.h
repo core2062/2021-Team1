@@ -15,10 +15,10 @@
 #define PCM 0
 
 /* Drive ports */
-#define RIGHT_FRONT_PORT 4
-#define RIGHT_BACK_PORT 5
-#define LEFT_FRONT_PORT 6
-#define LEFT_BACK_PORT 7
+#define RIGHT_FRONT_PORT 5
+#define RIGHT_BACK_PORT 7
+#define LEFT_FRONT_PORT 4
+#define LEFT_BACK_PORT 6
 
 /* Shifters */
 #define LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT 8
