@@ -18,6 +18,7 @@ public:
     void initTalons();
 
 private:
-    TalonSRX m_stilt1;
-    TalonSRX m_stilt2;
+    TalonSRX m_stilt1, m_stilt2, m_stilt1Gear, m_stilt2Gear;
+    bool m_stiltsActivated;
+    int m_stiltLenthInTicks;
 };

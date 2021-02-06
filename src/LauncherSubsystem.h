@@ -9,11 +9,6 @@
 using namespace CORE;
 using namespace frc;
 
-//Define PLS
-#define PNEUMATIC_LAUNCHER_SYSTEM_PCM 0
-#define PNEUMATIC_LAUNCHER_SYSTEM_OPEN 10
-#define PNEUMATIC_LAUNCHER_SYSTEM_CLOSED 11
-
 class LauncherSubsystem : public CORESubsystem {
 public:
 	LauncherSubsystem();

@@ -2,7 +2,7 @@
 
 using namespace CORE;
 
-LauncherSubsystem::LauncherSubsystem() : m_launcherSolenoid(PNEUMATIC_LAUNCHER_SYSTEM_PCM, PNEUMATIC_LAUNCHER_SYSTEM_OPEN, PNEUMATIC_LAUNCHER_SYSTEM_CLOSED)
+LauncherSubsystem::LauncherSubsystem() : m_launcherSolenoid(PCM, PNEUMATIC_LAUNCHER_SYSTEM_OPEN, PNEUMATIC_LAUNCHER_SYSTEM_CLOSED)
                                         {}
 
 void LauncherSubsystem::robotInit() {
