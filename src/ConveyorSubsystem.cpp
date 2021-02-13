@@ -13,6 +13,11 @@ void ConveyorSubsystem::teleopInit() {
 }
 
 void ConveyorSubsystem::teleop(){
+    if (driverJoystick->GetRisingEdge(CORE::COREJoystick::Y_BUTTON) && (m_conveyerAngle.GetSelectedSensorPosition(0))) {
+        tiltAngle();
+        m_tiltActivated = !m_tiltActivated;
+    } else if ()
+
     if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
         setMotor(conveyorSpeed.Get());
     } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
@@ -25,6 +30,8 @@ void ConveyorSubsystem::teleop(){
 
 void ConveyorSubsystem::initTalons(){
     m_conveyorMotor.Set(ControlMode::PercentOutput, 0);
+    m_conveyorMotor.Set(ControlMode::PercentOutput, 0);
+    m_conveyorMotor.SetInverted(true);
     m_conveyorMotor.SetInverted(true);
 }
 
