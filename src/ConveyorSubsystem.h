@@ -18,7 +18,7 @@ public:
  
 
 private: 
-    TalonSRX m_conveyorMotor, m_conveyorAngle;
+    TalonSRX m_conveyorMotor, m_conveyorAngleMotor;
     bool m_tiltActivated;
     int m_tiltAngleInTicks;
     int m_tiltActivator;

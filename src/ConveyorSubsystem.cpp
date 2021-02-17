@@ -6,6 +6,7 @@ ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed("Conveyor Speed", 0.75),
 
 void ConveyorSubsystem::robotInit(){
     initTalons();
+    driverJoystick->RegisterButton(CORE::COREJoystick::Y_BUTTON);
 }
 
 void ConveyorSubsystem::teleopInit() {
@@ -13,26 +14,26 @@ void ConveyorSubsystem::teleopInit() {
 }
 
 void ConveyorSubsystem::teleop(){
-    if (driverJoystick->GetRisingEdge(CORE::COREJoystick::Y_BUTTON) && (m_conveyerAngle.GetSelectedSensorPosition(0) < m_tiltAngleInTicks)) {
+    if (driverJoystick->GetRisingEdge(CORE::COREJoystick::Y_BUTTON) && (m_conveyerAngleMotor.GetSelectedSensorPosition(0) < m_tiltAngleInTicks)) {
         m_tiltActivator = 1;
-    } else if () {
+    } else if (m_conveyerAngleMotor.GetSelectedSensorPosition(0) >= m_tiltAngleInTicks) {
         m_tiltActivator = 0;
-    } else if (driverJoystick->GetRisingEdge(CORE::COREJoystick::Y_BUTTON) && (m_conveyerAngle.GetSelectedSensorPosition(0) >= m_tiltAngleInTicks)) {
+    } else if (driverJoystick->GetRisingEdge(CORE::COREJoystick::Y_BUTTON) && (m_conveyerAngleMotor.GetSelectedSensorPosition(0) >= m_tiltAngleInTicks)) {
         m_tiltActivator = 2;
     }
 
     if (m_tiltActivator == 1) {
-        m_conveyerAngle.Set(ControlMode::PercentOutput, 0.5);
+        m_conveyerAngleMotor.Set(ControlMode::PercentOutput, -0.5);
         m_tiltActivated = true;
     } else if (m_tiltActivator == 0) {
-        m_conveyerAngle.Set(ControlMode::PercentOutput, 0);
-    } else if (m_tiltActivator = 2) {
-        m_conveyerAngle.Set(ControlMode::PercentOutput, -0.5);
+        m_conveyerAngleMotor.Set(ControlMode::PercentOutput, 0);
+    } else if (m_tiltActivator == 2) {
+        m_conveyerAngleMotor.Set(ControlMode::PercentOutput, 0.5);
         m_tiltActivated = true;
     }
 
 
-    if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
+    if (operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
         setMotor(conveyorSpeed.Get());
     } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
         setMotor(-conveyorSpeed.Get());
