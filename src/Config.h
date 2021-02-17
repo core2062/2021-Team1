@@ -31,7 +31,8 @@
 #define PNEUMATIC_LAUNCHER_SYSTEM_CLOSED 11
 
 /* Intake and Conveyor Port(s) */
-#define CONVEYOR_PORT_1 23
+#define CONVEYOR_PORT_1 25
+#define TILT_PORT 26
 
 /* Climber port */
 #define CLIMBER_1_PORT 21
