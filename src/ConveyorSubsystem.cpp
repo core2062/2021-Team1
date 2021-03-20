@@ -1,8 +1,7 @@
 #include "ConveyorSubsystem.h"
 
 ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed("Conveyor Speed", 0.75),
-                                         m_conveyorMotor(CONVEYOR_PORT_1),
-                                         m_conveyorAngleMotor(TILT_PORT) {
+                                         m_conveyorMotor(CONVEYOR_PORT_1) {
 }
 
 void ConveyorSubsystem::robotInit(){
@@ -15,23 +14,6 @@ void ConveyorSubsystem::teleopInit() {
 }
 
 void ConveyorSubsystem::teleop(){
-    if (driverJoystick->GetRisingEdge(CORE::COREJoystick::Y_BUTTON) && (m_conveyorAngleMotor.GetSelectedSensorPosition(0) < m_tiltAngleInTicks)) {
-        m_tiltActivator = 1;
-    } else if (m_conveyorAngleMotor.GetSelectedSensorPosition(0) >= m_tiltAngleInTicks) {
-        m_tiltActivator = 0;
-    } else if (driverJoystick->GetRisingEdge(CORE::COREJoystick::Y_BUTTON) && (m_conveyorAngleMotor.GetSelectedSensorPosition(0) >= m_tiltAngleInTicks)) {
-        m_tiltActivator = 2;
-    }
-
-    if (m_tiltActivator == 1) {
-        m_conveyorAngleMotor.Set(ControlMode::PercentOutput, -0.5);
-        m_tiltActivated = true;
-    } else if (m_tiltActivator == 0) {
-        m_conveyorAngleMotor.Set(ControlMode::PercentOutput, 0);
-    } else if (m_tiltActivator == 2) {
-        m_conveyorAngleMotor.Set(ControlMode::PercentOutput, 0.5);
-        m_tiltActivated = true;
-    }
 
 
     if (operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {

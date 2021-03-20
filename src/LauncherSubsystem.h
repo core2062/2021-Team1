@@ -1,7 +1,7 @@
 #pragma once
 
 #include <frc/Compressor.h>
-#include <frc/DoubleSolenoid.h>
+#include <frc/Solenoid.h>
 #include <ctre/Phoenix.h>
 #include <CORERobotLib.h>
 #include "Config.h"
@@ -21,6 +21,7 @@ public:
     void launcherTriggered();
 
 private:
-	DoubleSolenoid m_launcherSolenoid;
+	Solenoid m_launcherSolenoidOne, m_launcherSolenoidTwo;
 	bool m_solenoidActivated;
+	
 };
