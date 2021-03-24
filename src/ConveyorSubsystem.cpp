@@ -29,8 +29,6 @@ void ConveyorSubsystem::teleop(){
 
 void ConveyorSubsystem::initTalons(){
     m_conveyorMotor.Set(ControlMode::PercentOutput, 0);
-    m_conveyorMotor.Set(ControlMode::PercentOutput, 0);
-    m_conveyorMotor.SetInverted(true);
     m_conveyorMotor.SetInverted(true);
 }
 
