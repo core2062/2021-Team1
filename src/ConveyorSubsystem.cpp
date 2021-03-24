@@ -1,12 +1,14 @@
 #include "ConveyorSubsystem.h"
 
-ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed("Conveyor Speed", 0.75),
+ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed(0.5),
                                          m_conveyorMotor(CONVEYOR_PORT_1) {
 }
 
 void ConveyorSubsystem::robotInit(){
     initTalons();
-    driverJoystick->RegisterButton(CORE::COREJoystick::Y_BUTTON);
+    
+    operatorJoystick->RegisterButton(CORE::COREJoystick::LEFT_BUTTON);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::LEFT_TRIGGER);
 }
 
 void ConveyorSubsystem::teleopInit() {
@@ -14,12 +16,11 @@ void ConveyorSubsystem::teleopInit() {
 }
 
 void ConveyorSubsystem::teleop(){
-
-
-    if (operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
-        setMotor(conveyorSpeed.Get());
-    } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
-        setMotor(-conveyorSpeed.Get());
+    frc::SmartDashboard::PutNumber("Conveyor Speed",conveyorSpeed);
+    if (operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
+        setMotor(conveyorSpeed);
+    } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
+        setMotor(-conveyorSpeed);
     } else {
         setMotor(0.0);
     }
