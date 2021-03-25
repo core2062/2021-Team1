@@ -16,11 +16,12 @@ public:
     void teleopInit() override;
     void teleop() override;
     void initTalons();
-
+    int STILT_RISE_DISTANCE;
 private:
     TalonSRX m_stilt1;
     TalonSRX m_stilt2;
     bool m_stiltsEngaged = false;
     double m_encoder1StartUpPosition;
     double m_encoder2StartUpPosition;
+   
 };

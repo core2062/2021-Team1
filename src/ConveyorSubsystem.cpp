@@ -16,11 +16,11 @@ void ConveyorSubsystem::teleopInit() {
 }
 
 void ConveyorSubsystem::teleop(){
-    frc::SmartDashboard::PutNumber("Conveyor Speed",conveyorSpeed);
+    frc::SmartDashboard::PutNumber("Conveyor In Speed",conveyorSpeed);
     if (operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
         setMotor(conveyorSpeed);
     } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
-        setMotor(-conveyorSpeed);
+        setMotor(-0.75);
     } else {
         setMotor(0.0);
     }

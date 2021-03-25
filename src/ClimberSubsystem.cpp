@@ -11,13 +11,13 @@ void ClimberSubsystem::robotInit() {
 
 void ClimberSubsystem::teleopInit() {
     
-    driverJoystick->RegisterButton(STILT_ENGAGE_BUTTON);
+    driverJoystick->RegisterButton(CORE::COREJoystick::X_BUTTON);
     initTalons();
 }
 
 void ClimberSubsystem::teleop() {
     // Check for a request to switch position
-    if (driverJoystick->GetRisingEdge(STILT_ENGAGE_BUTTON)) {
+    if (driverJoystick->GetRisingEdge(CORE::COREJoystick::X_BUTTON)) {
         m_stiltsEngaged = !m_stiltsEngaged;
     }
 
@@ -31,7 +31,7 @@ void ClimberSubsystem::teleop() {
 
     double targetDistance = m_stiltsEngaged ? STILT_RISE_DISTANCE : 0.0;
 
-    //TODO: move the motor to target the correct distace
+    //TODO: move the motor to target the correct distance
 }
 
 void ClimberSubsystem::initTalons(){
