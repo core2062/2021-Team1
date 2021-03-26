@@ -9,12 +9,12 @@ Robot::Robot() {
 void Robot::robotInit() {
 	
 }
-
 void Robot::teleopInit() {}
 
 void Robot::test() {}
 
 void Robot::teleop() {
+    cout<<"RobotTeleop"<<endl;
 }
 
 void Robot::testInit() {

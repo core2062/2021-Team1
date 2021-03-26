@@ -9,6 +9,11 @@
 using namespace CORE;
 using namespace frc;
 
+//Define PLS
+#define PNEUMATIC_LAUNCHER_SYSTEM_PCM 0
+#define PNEUMATIC_LAUNCHER_SYSTEM_OPEN 10
+#define PNEUMATIC_LAUNCHER_SYSTEM_CLOSED 11
+
 class LauncherSubsystem : public CORESubsystem {
 public:
 	LauncherSubsystem();
@@ -21,7 +26,6 @@ public:
     void launcherTriggered();
 
 private:
-	Solenoid m_launcherSolenoidOne, m_launcherSolenoidTwo;
+	Solenoid m_launcherSolenoidOne,m_launcherSolenoidTwo;
 	bool m_solenoidActivated;
-	
 };

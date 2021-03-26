@@ -32,7 +32,6 @@ void DriveSubsystem::teleopInit() {
 void DriveSubsystem::teleop() {
 	// Code for teleop. Sets motor speed based on the values for the joystick, runs compressor,
 	// toggles gears
-	m_leftMaster.Set(ControlMode::PercentOutput, 0.15);
     double mag = -driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_Y);
 	double rot = driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::RIGHT_STICK_X);
 
@@ -41,7 +40,7 @@ void DriveSubsystem::teleop() {
 	SmartDashboard::PutNumber("Left side speed", speeds.left);
 	SmartDashboard::PutNumber("Right side speed", speeds.right);
 	SmartDashboard::PutNumber("Left side encoder", m_leftMaster.GetSelectedSensorPosition(0));
-	// SmartDashboard::PutNumber("Right side encoder", m_rightMaster.GetSelectedSensorPosition(0));
+	SmartDashboard::PutNumber("Right side encoder", m_rightMaster.GetSelectedSensorPosition(0));
 
 	if(driverJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
 		toggleGear();
@@ -52,10 +51,12 @@ void DriveSubsystem::teleop() {
 void DriveSubsystem::setMotorSpeed(double speedInFraction, DriveSide whichSide) {
 	// Sets motor speed based on drive side and desired speed
 	if (whichSide == DriveSide::BOTH || whichSide == DriveSide::RIGHT) {
+		cout<<"driving right\n";
 		m_rightMaster.Set(ControlMode::PercentOutput, speedInFraction);
 		m_rightSlave.Set(ControlMode::PercentOutput, speedInFraction);
 	}
 	if (whichSide == DriveSide::BOTH || whichSide == DriveSide::LEFT) {
+		cout<<"driving left\n";
 		m_leftMaster.Set(ControlMode::PercentOutput, speedInFraction);
 		m_leftSlave.Set(ControlMode::PercentOutput, speedInFraction);
 	}

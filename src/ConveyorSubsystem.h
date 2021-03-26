@@ -1,5 +1,6 @@
 #pragma once
 
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/Compressor.h>
 #include <frc/DoubleSolenoid.h>
 #include <ctre/Phoenix.h>
@@ -8,7 +9,7 @@
 
 class ConveyorSubsystem : public CORESubsystem {
 public:
-    COREConstant<double> conveyorSpeed;
+    double conveyorSpeed;
     ConveyorSubsystem();
     void robotInit() override;
     void teleopInit() override;
