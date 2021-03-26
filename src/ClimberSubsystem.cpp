@@ -28,10 +28,13 @@ void ClimberSubsystem::teleop() {
     // Calculate target encoder distance
     double encoder1Distance = encoder1Position - m_encoder1StartUpPosition;
     double encoder2Distance = encoder2Position - m_encoder2StartUpPosition;
-
-    double targetDistance = m_stiltsEngaged ? STILT_RISE_DISTANCE : 0.0;
-
     //TODO: move the motor to target the correct distance
+    if (!(encoder1Distance = 0 || encoder1Distance < 0) && m_stiltsEngaged){
+        m_stilt1.Set(ControlMode::PercentOutput, 0.25);
+    }
+        if (!(encoder2Distance == 0)){
+        m_stilt2.Set(ControlMode::PercentOutput, 0.25);
+    }
 }
 
 void ClimberSubsystem::initTalons(){

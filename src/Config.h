@@ -12,7 +12,7 @@
  */
 
 /* PCM Ports */
-#define PCM 0
+#define PCM 2
 
 /* Drive ports */
 #define RIGHT_FRONT_PORT 5

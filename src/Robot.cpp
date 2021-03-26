@@ -9,13 +9,6 @@ Robot::Robot() {
 void Robot::robotInit() {
 	
 }
-
-void Robot::RobotPeriodic() {
-}
-
-void Robot::TeleopPeriodic() {
-}
-
 void Robot::teleopInit() {}
 
 void Robot::test() {}

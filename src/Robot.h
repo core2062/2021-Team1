@@ -20,8 +20,6 @@ using namespace std;
 class Robot : public CORERobot {
 public: 
  	Robot();
-	void RobotPeriodic() override;
-	void TeleopPeriodic() override;
 	void robotInit() override;
     void teleopInit() override;
     void teleop() override;

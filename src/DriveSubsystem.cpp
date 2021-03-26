@@ -51,10 +51,12 @@ void DriveSubsystem::teleop() {
 void DriveSubsystem::setMotorSpeed(double speedInFraction, DriveSide whichSide) {
 	// Sets motor speed based on drive side and desired speed
 	if (whichSide == DriveSide::BOTH || whichSide == DriveSide::RIGHT) {
+		cout<<"driving right\n";
 		m_rightMaster.Set(ControlMode::PercentOutput, speedInFraction);
 		m_rightSlave.Set(ControlMode::PercentOutput, speedInFraction);
 	}
 	if (whichSide == DriveSide::BOTH || whichSide == DriveSide::LEFT) {
+		cout<<"driving left\n";
 		m_leftMaster.Set(ControlMode::PercentOutput, speedInFraction);
 		m_leftSlave.Set(ControlMode::PercentOutput, speedInFraction);
 	}
