@@ -13,6 +13,7 @@
 #include "ConveyorSubsystem.h"
 #include "ClimberSubsystem.h"
 #include "Config.h"
+#include "auto/DriveRoutine.h"
 
 using namespace CORE;
 using namespace std;
@@ -30,6 +31,7 @@ public:
 	LauncherSubsystem launcherSubsystem;
 	ConveyorSubsystem conveyorSubsystem;
 	ClimberSubsystem climberSubsystem;
+	DriveRoutine driveRoutine;
 
 private:
 	static Robot * m_instance;

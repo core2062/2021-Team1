@@ -17,21 +17,21 @@ void LauncherSubsystem::teleopInit() {
 
 void LauncherSubsystem::teleop() {
     if (operatorJoystick->GetRisingEdge(CORE::COREJoystick::B_BUTTON)) {
-        launcherTriggered();
+        launcherTriggered(m_solenoidActivated);
     }
 }
 
-void LauncherSubsystem::launcherTriggered() {
-    if (m_solenoidActivated) {
-        m_launcherSolenoidOne.Set(m_solenoidActivated);
-        m_launcherSolenoidTwo.Set(m_solenoidActivated);
+void LauncherSubsystem::launcherTriggered(bool firing) {
+    if (!firing) {
+        m_launcherSolenoidOne.Set(!firing);
+        m_launcherSolenoidTwo.Set(!firing);
         std::cout<<"fired";
-        m_solenoidActivated = false;
-    } else if (!m_solenoidActivated) {
-        m_launcherSolenoidOne.Set(m_solenoidActivated);
-        m_launcherSolenoidTwo.Set(m_solenoidActivated);
-        std::cout<<"returned";
         m_solenoidActivated = true;
+    }else if (m_solenoidActivated) {
+        m_launcherSolenoidOne.Set(!firing);
+        m_launcherSolenoidTwo.Set(!firing);
+        std::cout<<"returned";
+        m_solenoidActivated = false;
     }
 }
 void LauncherSubsystem::teleopEnd() {

@@ -23,7 +23,7 @@ public:
 	void teleopEnd() override;
 	void auton();
 	void initTalons();
-    void launcherTriggered();
+    void launcherTriggered(bool firing);
 
 private:
 	Solenoid m_launcherSolenoidOne,m_launcherSolenoidTwo;
