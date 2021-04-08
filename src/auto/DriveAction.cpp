@@ -27,7 +27,7 @@ CORE::COREAutonAction::actionStatus DriveAction::Action() {
             break;
         case BACKWARD:
             if(encoderValue > m_encoderStartUpPosition - 7957224){
-                driveSubsystem->setMotorSpeed(-0.5, DriveSide::BOTH);
+                driveSubsystem->setMotorSpeed(-0.90, DriveSide::BOTH);
                 return COREAutonAction::actionStatus::CONTINUE;
             } else{
                 driveSubsystem->setMotorSpeed(0.0, DriveSide::BOTH);
@@ -38,5 +38,4 @@ CORE::COREAutonAction::actionStatus DriveAction::Action() {
 }
 
 void DriveAction::ActionEnd() {
-
 }
