@@ -17,6 +17,10 @@ public:
     void AddNodes() override;
 private:
     Node * driveNode;
-    Node * delayNode;
-
+    Node * conveyorOnNode;
+    Node * conveyorOffNode;
+    Node * delayLaunchNode;
+    Node * delayConveyorNode;
+    Node * launchOnNode;
+    Node * launchOffNode;
 };
