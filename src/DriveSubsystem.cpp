@@ -8,7 +8,7 @@ DriveSubsystem::DriveSubsystem() :
 		m_etherAValue("Ether A Value", .6),
         m_etherBValue("Ether B Value", .4),
 		m_etherQuickTurnValue("Ether Quick Turn Value", 1.0),
-        m_ticksPerInch("Ticks Per Inch", (4 * 3.1415) / 1024),
+        m_ticksPerInch("Ticks Per Inch", (6 * 3.1415) / 1024),
         m_leftDriveShifter(PCM, LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT, LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT),
         m_rightDriveShifter(PCM, RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT, RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT),
 		compressor(PCM) {
@@ -39,8 +39,8 @@ void DriveSubsystem::teleop() {
 	setMotorSpeed(speeds.left, speeds.right);
 	SmartDashboard::PutNumber("Left side speed", speeds.left);
 	SmartDashboard::PutNumber("Right side speed", speeds.right);
-	SmartDashboard::PutNumber("Left side encoder", m_leftMaster.GetSelectedSensorPosition(0));
-	SmartDashboard::PutNumber("Right side encoder", m_rightMaster.GetSelectedSensorPosition(0));
+	// SmartDashboard::PutNumber("Left side encoder", m_leftMaster.GetSelectedSensorPosition(0));
+	// SmartDashboard::PutNumber("Right side encoder", m_rightMaster.GetSelectedSensorPosition(0));
 
 	if(driverJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
 		toggleGear();
@@ -53,10 +53,12 @@ void DriveSubsystem::setMotorSpeed(double speedInFraction, DriveSide whichSide) 
 	if (whichSide == DriveSide::BOTH || whichSide == DriveSide::RIGHT) {
 		m_rightMaster.Set(ControlMode::PercentOutput, speedInFraction);
 		m_rightSlave.Set(ControlMode::PercentOutput, speedInFraction);
+	    SmartDashboard::PutNumber("Right side encoder", m_rightMaster.GetSelectedSensorPosition(0));
 	}
 	if (whichSide == DriveSide::BOTH || whichSide == DriveSide::LEFT) {
 		m_leftMaster.Set(ControlMode::PercentOutput, speedInFraction);
 		m_leftSlave.Set(ControlMode::PercentOutput, speedInFraction);
+	    SmartDashboard::PutNumber("Left side encoder", m_leftMaster.GetSelectedSensorPosition(0));
 	}
 }
 

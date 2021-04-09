@@ -18,7 +18,7 @@ CORE::COREAutonAction::actionStatus DriveAction::Action() {
     switch(m_driveAction) {
         case FORWARD:
             // Robot::GetInstance()->driveSubsystem.setMotorSpeed(0.5, DriveSide::BOTH);
-            if(encoderValue < 7957224 + m_encoderStartUpPosition){
+            if(encoderValue < 7297 + m_encoderStartUpPosition){
                 driveSubsystem->setMotorSpeed(0.5, DriveSide::BOTH);
                 return COREAutonAction::actionStatus::CONTINUE;
             } else{
@@ -26,12 +26,14 @@ CORE::COREAutonAction::actionStatus DriveAction::Action() {
             }
             break;
         case BACKWARD:
-            if(encoderValue > m_encoderStartUpPosition - 7957224){
+            driveSubsystem->toggleGear();
+            if(encoderValue > m_encoderStartUpPosition - 87573){
                 driveSubsystem->setMotorSpeed(-0.90, DriveSide::BOTH);
                 return COREAutonAction::actionStatus::CONTINUE;
             } else{
                 driveSubsystem->setMotorSpeed(0.0, DriveSide::BOTH);
             }
+            driveSubsystem->toggleGear();
             break;
     }
     return COREAutonAction::actionStatus::END;
