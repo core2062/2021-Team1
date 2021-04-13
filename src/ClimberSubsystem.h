@@ -17,6 +17,7 @@ public:
     void teleop() override;
     void initTalons();
     int STILT_RISE_DISTANCE;
+    COREConstant<double> m_encoderEndPosition;
 private:
     TalonSRX m_stilt1;
     TalonSRX m_stilt2;

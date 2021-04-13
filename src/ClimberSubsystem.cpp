@@ -1,7 +1,8 @@
 #include "ClimberSubsystem.h"
 
 ClimberSubsystem::ClimberSubsystem() : m_stilt1(CLIMBER_1_PORT),
-                                       m_stilt2(CLIMBER_2_PORT) {
+                                       m_stilt2(CLIMBER_2_PORT),
+                                       m_encoderEndPosition("encoder position goal", 1000) {
 
                                       }
 
@@ -29,11 +30,15 @@ void ClimberSubsystem::teleop() {
     double encoder1Distance = encoder1Position - m_encoder1StartUpPosition;
     double encoder2Distance = encoder2Position - m_encoder2StartUpPosition;
     //TODO: move the motor to target the correct distance
-    if (!(encoder1Distance = 0 || encoder1Distance < 0) && m_stiltsEngaged){
+    if(!(encoder1Distance == m_encoderEndPosition.Get() || encoder1Distance < m_encoderEndPosition.Get()) && m_stiltsEngaged){
         m_stilt1.Set(ControlMode::PercentOutput, 0.25);
-    }
-        if (!(encoder2Distance == 0)){
         m_stilt2.Set(ControlMode::PercentOutput, 0.25);
+    }else if (!((encoder1Distance == 0 || encoder1Distance < 0))){
+        m_stilt1.Set(ControlMode::PercentOutput, -0.25);
+        m_stilt2.Set(ControlMode::PercentOutput, -0.25);
+    } else{
+        m_stilt1.Set(ControlMode::PercentOutput, 0);
+        m_stilt2.Set(ControlMode::PercentOutput, 0);  
     }
 }
 
