@@ -33,9 +33,3 @@
 /* Intake and Conveyor Port(s) */
 #define CONVEYOR_PORT_1 25
 #define TILT_PORT 26
-
-/* Climber port */
-#define CLIMBER_1_PORT 21
-#define CLIMBER_2_PORT 22
-#define CLIMBER_1_PORT_GEAR 23
-#define CLIMBER_2_PORT_GEAR 24
